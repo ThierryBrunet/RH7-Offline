@@ -6,6 +6,7 @@
 # RH7 Dapr off-line
 dapr/*
 docker/*
+thier/*
 *.rpm
 *.tar
 *.gz
