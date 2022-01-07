@@ -76,6 +76,7 @@ Invoke-Command $session -ScriptBlock { docker exec dapr_redis redis-cli --scan }
 Invoke-Command $session -ScriptBlock { docker exec dapr_redis redis-cli hgetall "myapp||name" }
 Invoke-Command $session -ScriptBlock { docker exec dapr_redis redis-cli hgetall "orderprocessing||order_1" }
 Invoke-Command $session -ScriptBlock { docker exec dapr_redis redis-cli hgetall "orderprocessing||order_2" }
+Invoke-Command $session -ScriptBlock { docker exec dapr_redis redis-cli config get * }
 
 Enter-PSSession $session
 dir /
