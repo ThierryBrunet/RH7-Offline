@@ -1,0 +1,77 @@
+﻿
+
+cd /home/thierry
+su thierry
+ls -al
+
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+
+minikube start
+
+
+
+[thierry@rh8 Downloads]$ sudo install minikube-linux-amd64 /usr/local/bin/minikube
+[sudo] password for thierry: 
+[thierry@rh8 Downloads]$ minikube start
+😄  minikube v1.25.1 on Redhat 8.5
+✨  Automatically selected the docker driver. Other choices: none, ssh
+👍  Starting control plane node minikube in cluster minikube
+🚜  Pulling base image ...
+💾  Downloading Kubernetes v1.23.1 preload ...
+    > preloaded-images-k8s-v16-v1...: 504.42 MiB / 504.42 MiB  100.00% 8.26 MiB
+    > gcr.io/k8s-minikube/kicbase: 378.98 MiB / 378.98 MiB  100.00% 4.34 MiB p/
+🔥  Creating docker container (CPUs=2, Memory=2200MB) ...
+🐳  Preparing Kubernetes v1.23.1 on Docker 20.10.12 ...
+    ▪ kubelet.housekeeping-interval=5m
+    ▪ Generating certificates and keys ...
+    ▪ Booting up control plane ...
+    ▪ Configuring RBAC rules ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟  Enabled addons: default-storageclass, storage-provisioner
+💡  kubectl not found. If you need it, try: 'minikube kubectl -- get pods -A'
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+[thierry@rh8 Downloads]$ 
+
+
+[thierry@rh8 Downloads]$ minikube kubectl -- get po -A
+    > kubectl.sha256: 64 B / 64 B [--------------------------] 100.00% ? p/s 0s
+    > kubectl: 44.43 MiB / 44.43 MiB [-------------] 100.00% 13.24 MiB p/s 3.6s
+NAMESPACE     NAME                               READY   STATUS    RESTARTS       AGE
+kube-system   coredns-64897985d-76r9f            1/1     Running   0              7m36s
+kube-system   etcd-minikube                      1/1     Running   0              7m49s
+kube-system   kube-apiserver-minikube            1/1     Running   0              7m52s
+kube-system   kube-controller-manager-minikube   1/1     Running   0              7m49s
+kube-system   kube-proxy-cjwqt                   1/1     Running   0              7m36s
+kube-system   kube-scheduler-minikube            1/1     Running   0              7m49s
+kube-system   storage-provisioner                1/1     Running   1 (7m5s ago)   7m47s
+[thierry@rh8 Downloads]$ kubectl get po -A
+bash: kubectl: command not found...
+
+
+[thierry@rh8 Downloads]$ alias kubectl="minikube kubectl --"
+[thierry@rh8 Downloads]$ kubectl get po -A
+NAMESPACE              NAME                                        READY   STATUS    RESTARTS      AGE
+kube-system            coredns-64897985d-76r9f                     1/1     Running   0             13m
+kube-system            etcd-minikube                               1/1     Running   0             13m
+kube-system            kube-apiserver-minikube                     1/1     Running   0             13m
+kube-system            kube-controller-manager-minikube            1/1     Running   0             13m
+kube-system            kube-proxy-cjwqt                            1/1     Running   0             13m
+kube-system            kube-scheduler-minikube                     1/1     Running   0             13m
+kube-system            storage-provisioner                         1/1     Running   1 (12m ago)   13m
+kubernetes-dashboard   dashboard-metrics-scraper-58549894f-vgjpp   1/1     Running   0             3m44s
+kubernetes-dashboard   kubernetes-dashboard-ccd587f44-vf2qp        1/1     Running   0             3m44s
+[thierry@rh8 Downloads]$ 
+
+
+gcr.io/k8s-minikube/kicbase
+gcr.io/k8s-minikube/storage-provisioner:v5
+
+
+
+
+
+

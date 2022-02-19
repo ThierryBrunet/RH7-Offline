@@ -1,0 +1,10 @@
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: myevent-subscription
+spec:
+  topic: myopetopic1
+  route: /opeprocess1
+  pubsubname: opecpubsub
+scopes:
+- opecsub

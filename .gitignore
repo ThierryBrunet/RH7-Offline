@@ -12,6 +12,11 @@ rpm/*
 *.rpm
 *.tar
 *.gz
+*.exe
+*.dll
+*.cache
+*.pdb
+obj/
 
 # VS Code 
 .vscode/*

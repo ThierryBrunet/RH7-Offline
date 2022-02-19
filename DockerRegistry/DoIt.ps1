@@ -93,6 +93,17 @@ docker pull quay.io/thierrybrunet_1/opec-etcd:v1
 docker commit 07f2065197ef quay.io/thierrybrunet_1/myfirstrepo
 docker push quay.io/thierrybrunet_1/opec-dapr
 
+
+# push kickbase -- gcr.io/k8s-minikube/kicbase:v0.0.29
+docker pull gcr.io/k8s-minikube/kicbase:v0.0.29
+docker tag gcr.io/k8s-minikube/kicbase:v0.0.29 quay.io/thierrybrunet_1/opec-kicbase:v1
+docker push quay.io/thierrybrunet_1/opec-kicbase:v1
+
+docker pull quay.io/thierrybrunet_1/opec-kickbase:v1
+
+docker pull quay.io/thierrybrunet_1/opec-kicbase
+
+
 #endregion
 
 #region -- [3] Bitnami ETCD
